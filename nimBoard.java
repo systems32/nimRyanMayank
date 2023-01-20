@@ -1,12 +1,17 @@
 public class nimBoard {
-    private int cards;
+    private int cards = 20;
     private int returnedCard;
 
     public int removeCard(int cardRemove)
     {
-        if (cardRemove < (cards/2))
+        if (cardRemove <= (cards/2))
         {
             cards -= cardRemove;
+            return cards;
+        }
+        else if (cards == 1)
+        {
+            cards = 0;
             return cards;
         }
         else
@@ -20,6 +25,7 @@ public class nimBoard {
         returnedCard = removeCard(cardRemove);
         if (returnedCard == -1)
         {
+            System.out.println("Please enter in a number no more than half of the total cards.");
             return false;
 
         }
