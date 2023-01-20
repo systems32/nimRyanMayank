@@ -33,6 +33,7 @@ public class nimGame
             }
             if (nim.getCard() == 0) {break;}
         }
+        System.out.println("------------------------------------------------------------------");
         String result = (number % 2 == 0) ? "Player 1 wins!" : "Player 2 wins!";
         System.out.println(nim.getCard() + " cards remain! " + result);
 
