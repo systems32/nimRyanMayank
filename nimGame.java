@@ -2,19 +2,18 @@ import java.util.Scanner;
 
 public class nimGame
 {
-    public void game()
-    {
-        nimBoard nim = new nimBoard();
-        Scanner myObj = new Scanner(System.in);
-        boolean valid;
-        int number = 0;
-        
-
-
+    nimBoard nim = new nimBoard();
+    Scanner myObj = new Scanner(System.in);
+    boolean valid;
+    
+    public void game(int randomNum, String p1Name, String p2Name)
+    {   
+        nim.setNum();
         while (true)
         {
             System.out.println("------------------------------------------------------------------");
-            String result = (number % 2 == 0) ? "Player 1 please eneter in your number; " : "Player 2 please eneter in your number; ";
+            System.out.println(randomNum);
+            String result = (randomNum % 2 == 0) ? p1Name + " please eneter in your number; " : p2Name + " please eneter in your number; ";
             System.out.println(result + nim.getCard() + " cards remain");
             System.out.println("------------------------------------------------------------------");
             System.out.print("Number: ");
@@ -24,7 +23,7 @@ public class nimGame
             {
                 valid = nim.runGame(Integer.valueOf(userInput));
                 int addResult = (valid == true) ? 1 : 0;
-                number += addResult;
+                randomNum += addResult;
             }
             catch (Exception e)
             {
@@ -34,7 +33,7 @@ public class nimGame
             if (nim.getCard() == 0) {break;}
         }
         System.out.println("------------------------------------------------------------------");
-        String result = (number % 2 == 0) ? "Player 1 wins!" : "Player 2 wins!";
+        String result = (randomNum % 2 == 0) ? p1Name + " wins!" : p2Name + " wins!";
         System.out.println(nim.getCard() + " cards remain! " + result);
 
     }

@@ -1,5 +1,5 @@
 public class nimBoard {
-    private int cards = 20;
+    private int cards;
     private int returnedCard;
 
     public int removeCard(int cardRemove)
@@ -38,6 +38,11 @@ public class nimBoard {
     public int getCard()
     {
         return cards;
+    }
+
+    public void setNum()
+    {
+        cards = (int)(Math.random()*(50-10+1)+10);
     }
 
 }
