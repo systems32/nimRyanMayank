@@ -10,13 +10,12 @@ public class nimGame
     
     public void game(int randomNum, String p1Name, String p2Name)
     {   
-        // sets the pile
-        nim.setNum();
+        // calls 
+        setCards();
         while (true)
         {
             System.out.println("------------------------------------------------------------------");
             // acts as a cointoss to determine if player 1 or player 2 will go
-            System.out.println(randomNum);
             String result = (randomNum % 2 == 0) ? p1Name + " please eneter in your number; " : p2Name + " please eneter in your number; ";
            //promts the user to remove cards
             System.out.println(result + nim.getCard() + " cards remain");
@@ -45,5 +44,43 @@ public class nimGame
         String result = (randomNum % 2 == 0) ? p1Name + " wins!" : p2Name + " wins!";
         System.out.println(nim.getCard() + " cards remain! " + result);
 
+    }
+    
+    // method to set the pile, either user can set pile or randomly chosen
+    public void setCards()
+    {
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("If you would like to enter in the number of cards, type 'yes' otherwise please skip. ");
+        System.out.println("------------------------------------------------------------------");
+        String userSetYN = myObj.nextLine();
+        //if user chooses to set cards
+        if (userSetYN.equals("yes"))
+        {
+            while (true)
+            {
+                System.out.println("------------------------------------------------------------------");
+                System.out.println("Please enter in a NUMBER 10-50.");
+                System.out.println("------------------------------------------------------------------");
+                //user inputs cards
+                String userSetCards = myObj.nextLine();
+                try
+                {
+                    //checks if cards are within 10 and 50
+                    if (Integer.valueOf(userSetCards) >= 10 && Integer.valueOf(userSetCards) <= 50)
+                    {
+                        //calls method to set card
+                        nim.userSetNum(Integer.valueOf(userSetCards));
+                        break;
+                    }
+                }
+                catch (Exception e)
+                {}
+            }
+        }
+        // if user lets computer set cards
+        else
+        {
+            nim.setNum();
+        }
     }
 }

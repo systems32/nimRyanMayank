@@ -52,4 +52,10 @@ public class nimBoard {
         cards = (int)(Math.random()*(50-10+1)+10);
     }
 
+    //method to set pile to the number of cards chosen by the user
+    public void userSetNum(int userNum)
+    {
+        cards = userNum;
+    }
+
 }
