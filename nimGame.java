@@ -17,6 +17,7 @@ public class nimGame
             System.out.println(result + nim.getCard() + " cards remain");
             System.out.println("------------------------------------------------------------------");
             System.out.print("Number: ");
+            
 
             String userInput = myObj.nextLine();
             try

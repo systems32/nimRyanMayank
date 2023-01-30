@@ -9,10 +9,11 @@ public class nimBoard {
             cards -= cardRemove;
             return cards;
         }
-        else if (cards == 1)
+        else if ((cards == 1) && (cardRemove == 1))
         {
             cards = 0;
             return cards;
+            
         }
         else
         {
